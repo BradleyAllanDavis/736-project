@@ -1,0 +1,91 @@
+% Introduction: Motivate the problem. Start with generalities, and narrow in on your problem. Describe your approach. What is good about it? Potential weaknesses? Summarize results. EMPHASIZE any work that is new since your talk. Give an outline of the rest of the paper.
+\section{Introduction}
+
+Solid-state drives (SSDs) provide both higher throughput and lower latency than hard disk drives (HDDs).
+However, they hold different unwritten contracts for clients to extract the highest instantaneous and long-term performance from them~\cite{he2017unwritten}.
+The B-tree index is quite popular among database management systems (DBMSs), and has been around since the time of HDDs.
+However, as SSDs become more affordable and more popular, we need to take another look at how this highly predominant data structure is implemented, as SSDs have very different characteristics compared to HDDs.
+Some issues of using B-trees on SSDs have previously been studied [1, 2, 4, 7].
+There are two very important concerns of using B-trees on SSDs, the first being the choice of the right size for a node while running on an SSD.
+The second, and the most important concern, is that the original B+ tree requires overwriting nodes during insertion, which introduce writing of pages even if only a small part of a B+-tree node is updated (e.g., a pointer is changed).\\
+
+Many schemes have been proposed for developing flash-optimized B+-trees [1, 2, 4, 5, 6, 7, 8, 9, 10, 15, 16, 19, 20].
+Roh et al. [8] improved the performance of B+-Tree by utilizing the internal parallelism of the SSD.
+In addition, several optimized B+-Tree designs [1, 4, 19] use similar ideas as the log-structured file system, where they employ page-level write optimizations to address the in-place update problem.
+However, this log-structured updating is usually introduced at the expense of read performance.
+Finally, many systems we surveyed use buffering of writes in memory to better utilize the SSD throughput, and to prevent small writes.
+They delay writes in a buffer in memory so that updates can be batched together [2, 3, 7, 9, 12].
+This significantly increases disk throughput and allows the system to avoid in-place updates which incur costly erase cycles that shorten SSD life.
+However, this technique has negative implications for database systems, as it lengthens the time until data is persisted which weakens crash consistency.
+This tradeoff allows systems to achieve much greater throughput at the cost of safety.
+In addition to buffering writes, some systems also keep a cache of recently and frequently accessed nodes (pages) in memory to decrease lookup time [9].\\
+
+Unlike many of the techniques proposed, our design does not involve modifying the B+-tree data structure to suit the
+SSD [3, 7, 8, 15, 19].
+Instead, we propose an alternative layout of storing the B+-Tree node on the SSD, such that we do not violate the good practices of using SSDs.
+There are three key ideas of our design.
+First, we propose to structure each node of the B-tree itself as a 2-level B-tree, where the size of leaf nodes equals one page.
+We shall hereafter refer to this 2-level B-tree as the “nested B-tree”.
+Like traditional B-trees, we do not fill the leaf nodes (pages in our design) of the “nested B-tree” completely.
+This ensures that on an insertion, we need to write at most one page of data.
+Second, we update each node in a log-like manner, so that we do not overwrite pages within a node frequently.
+On an insertion, we do not invalidate a page in the node, but we instead append a new page with updated information.
+As we’ve left empty spaces in each page, we only require to append at most one page.
+Third, we modify the root of the “nested B-tree” to hold information about the active pages.
+The root of the “nested B-tree” now acts like a summary of the B-tree node, and can be held in memory.
+Before referring to the B-tree node, one can refer to the in-memory summary of the node and access the precise page with the data quickly.\\
+
+The benefits to our design are threefold.
+First, we persist data on to the SSD immediately, which might be desirable for DBMS applications.
+Second, as we do not modify the data structure itself, we can still make use of concurrent locking of the B-tree.
+Third, we optimize both reads and writes performance of B-tree, and expect the amplification to
+be low for both.
+Against both log-structured designs (no overwriting at expense of bad read performance) and original disk-based designs (which require overwrites multiple pages), we expect our design to perform well on look up operations (only need to read one page for each node), while we achieve as good write performance as the log-structured designs.
+In addition, unlike μ-Trees [15], which tradeoffs smaller node size for less random writes, we do not restrict the size of the node, and hence do not cause the B-tree to grow deep.\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% From Proposal
+
+Solid-state Drives (SSDs) are a fast durable storage medium and increasing in popularity every day.
+As the relative costs of SSDs continue to drop, they will increasingly become the choice of durable storage over HDDs in both the enterprise and consumer spaces.
+Thus, it is imperative to investigate the performance of data structures previously optimized for HDDs on SSDs.\\
+
+For our project, we want to focus on popular data structures used in DBMS applications.
+DBMS applications are I/O intensive and are most sensitive to the layout of data on the secondary storage and the access patterns to that data.
+In the context of DBMS applications, there are three key differences between SSDs and HDDs.
+First, SSDs have greatly increased throughput and reduced latency than HDDs for random accesses.
+Second, SSDs have multiple internal channels and can handle many requests concurrently.
+Third, small writes (which can be typically caused by insertions and deletions) can lead to costly operations inside an SSD (reprogramming a block for example).\\
+
+We intend to first consider the B-tree, a popular data structure used for indexing in DBMS.
+Many important DBMS like MySQL, PostgreSQL, MongoDB, and SQLite support B-tree or similar indexes.
+We want to investigate the performance bottlenecks with current B-tree implementations and see how the B-tree implementations in these systems can be updated to improve overall performance for SSDs across different workloads.
+Previous work along these lines has focused on different ways of buffering writes to avoid writing small amounts of data, which is a costly operation for SSDs.
+We want to see how well these ideas are implemented in practice, and improve upon or suggest alternative storage layouts to optimize SSD performance.\\
+
+To evaluate B-tree implementations, we first want to consider popular DBMS like MySQL, PostgreSQL, MongoDB, and SQLite.
+After building a B-tree index, we want to perform additions and deletions on the database to alter the index, as well as measure the size, parallelism, completion time of IOs, and even SSD operations resulted from these changes.
+We want to investigate how the data structure is stored on the SSD, and what impact do additions and deletions have on its layout.
+We also want to measure the impact of changing the node size of the B-tree, as we suspect that a smaller node size might be better for SSDs.
+Depending on our measurements, we then intend to modify the B-tree implementations in these systems in order to improve their performance for SSDs.\\
+
+While we intend to primarily investigate B-trees (as they are the most common) for our modifications and analysis of DBMS performance on SSDs, it is possible that other popular DBMS data structures may turn out to be more worthwhile for further study.
+If other data structures (such as R-trees, KD-trees, etc.) have characteristics that are easier to modify or have properties that are more fundamental for SSD performance, we will investigate those in addition or in place of B-trees.
+Ideally, we hope to demonstrate universal data structure (DBMS data structures specifically) design features that enable strong SSD performance. This work could have profound implications for performance in other areas such as file systems (btrfs which uses B-trees).\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
