@@ -1,0 +1,43 @@
+% Design and Implementation: Description of what you did/built. Use pictures and words to show what you did. Be detailed. Think about how to organize what you are doing.
+
+\section{Design/Implementation}
+
+
+\subsection{Experimental Setup and Methodology}
+
+\subsubsection{B-Tree Implementation}
+We were able to find a B-Tree implementation \cite{externalbtree} that utilizes external memory (disks) for storing the data structure. This implementation is written in C, single-threaded, and does not make use of a buffer (cache) layer. This implementation lacked \texttt{update(key, value)} or \texttt{delete(key)} functionality, however, we felt that \texttt{insert(key, value)} and \texttt{search(key)} provided a sufficient level of operation to explore our metrics of interest.\\
+
+We modified the B-Tree implementation to measure and output SSD/storage pertinent metrics:
+%\vspace{-5mm}
+\begin{itemize}
+\setlength\itemsep{0em}
+    \item Transactions per second
+    \item Total completion time
+    \item IO time
+    \item Number of nodes read
+    \item Height of tree
+    \item Total IO size
+\end{itemize}
+
+
+
+\subsubsection{Cloublab Experimental Platform}
+For our experiments we used Cloublab \cite{cloublab}
+
+
+
+
+
+
+%{\tt \small
+%\begin{verbatim}
+%#include <iostream>
+%using namespace std;
+%main()
+%{
+%cout << "Hello world \n";
+%return 0;
+%}
+%\end{verbatim}
+%}

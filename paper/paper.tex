@@ -1,0 +1,29 @@
+\documentclass[letterpaper,twocolumn,11pt]{article}
+\usepackage{usenix,epsfig}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\begin{document}
+
+\input{title.tex}
+\input{authors.tex}
+\maketitle
+
+\input{0abstract.tex}
+\input{1introduction.tex}
+\input{1_5background.tex}
+\input{2design.tex}
+\input{3results.tex}
+\input{4related_work.tex}
+\input{5future_work.tex}
+\input{6conclusions.tex}
+
+% Bibliography/references
+{
+\footnotesize \bibliographystyle{acm}
+\bibliography{references}
+}
+
+\end{document}

@@ -1,0 +1,19 @@
+% Related Work: You can include the related work report you submitted earlier in the semester; update it as needed.
+
+\section{Related Work}
+Our paper provide analysis of SSD architecture's influence to btree performance. We believe our work is novel in several aspects.
+
+\subsection{Flash-optimized B+-trees}
+Many schemes have been proposed for developing flash-optimized B+-trees [1, 2, 4, 5, 6, 7, 8, 9, 10, 15, 16, 19, 20].
+Roh et al. [8] improved the performance of B+-Tree by utilizing the internal parallelism of the SSD.
+In addition, several optimized B+-Tree designs [1, 4, 19] use similar ideas as the log-structured file system, where they employ page-level write optimizations to address the in-place update problem.
+However, this log-structured updating is usually introduced at the expense of read performance.
+Finally, many systems we surveyed use buffering of writes in memory to better utilize the SSD throughput, and to prevent small writes.
+They delay writes in a buffer in memory so that updates can be batched together [2, 3, 7, 9, 12].
+This significantly increases disk throughput and allows the system to avoid in-place updates which incur costly erase cycles that shorten SSD life.
+However, this technique has negative implications for database systems, as it lengthens the time until data is persisted which weakens crash consistency.
+This trade-off allows systems to achieve much greater throughput at the cost of safety.
+In addition to buffering writes, some systems also keep a cache of recently and frequently accessed nodes (pages) in memory to decrease look-up time [9].\\
+
+\subsection{Exploiting the parallelism of SSD}
+That exploiting parallelism of SSD paper.
