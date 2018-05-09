@@ -1,0 +1,50 @@
+[==========] Running 1 test(s).
+=== to open /mnt/ssd/normal.dat
+=== to open /mnt/ssd/popular.dat
+[ RUN      ] normal_workload
+
+################################################################
+# Run Info NORMAL
+BTREE_BLOCK_SIZE: 2048
+size(BtreeKey): 128 bits
+size(BtreeValue): 128 bits
+######################################
+BTREE_MAX_POSSIBLE_KEYS: 50
+BTREE_MIN_KEYS: 25
+BTREE_MAX_KEYS: 50
+BTREE_MIN_CHILDREN: 26
+BTREE_MAX_CHILDREN: 51
+################################################################
+
+################################################################
+# Insert
+num_insertions: 1000000
+Insertion taken 17165.591000 (msec)
+TPS: 58256.074219
+######################################
+node_reads: 4178045
+node_read_time: 4701.844000 (msec)
+################################################################
+
+################################################################
+# Search
+num_searches: 1000
+Searching taken 177.104000 (msec)
+TPS: 5646.399414
+######################################
+tree height: 	4
+node_reads: 3975
+node_read_time: 123.597000 (msec)
+################################################################
+
+Total searching taken 177.104000 (msec)
+[       OK ] normal_workload
+[==========] 1 test(s) run.
+ Reads Requeued:         0		 Writes Requeued:         0
+ Reads Completed:     3455,    13820KiB	 Writes Completed:      997,        0KiB
+ Read Merges:            0,        0KiB	 Write Merges:            0,        0KiB
+ IO unplugs:          9508        	 Timer unplugs:          20
+
+Throughput (R/W): 0KiB/s / 0KiB/s
+Events (259,4): 33249 entries
+Skips: 0 forward (0 -   0.0%)

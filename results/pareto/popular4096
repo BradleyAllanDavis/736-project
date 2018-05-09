@@ -1,0 +1,68 @@
+[==========] Running 1 test(s).
+=== to open /mnt/ssd/normal.dat
+=== to open /mnt/ssd/popular.dat
+[ RUN      ] pareto_workload
+
+################################################################
+# Run Info PARETO
+BTREE_BLOCK_SIZE: 4096
+size(BtreeKey): 128 bits
+size(BtreeValue): 128 bits
+######################################
+BTREE_MAX_POSSIBLE_KEYS: 102
+BTREE_MIN_KEYS: 51
+BTREE_MAX_KEYS: 102
+BTREE_MIN_CHILDREN: 52
+BTREE_MAX_CHILDREN: 103
+################################################################
+
+################################################################
+# Insert
+num_insertions: 1000000
+Insertion taken 21901.063000 (msec)
+TPS: 45659.886719
+######################################
+node_reads: 3339735
+node_read_time: 4361.998000 (msec)
+################################################################
+
+################################################################
+# Search
+num_searches: 1000
+Searching taken 112.123000 (msec)
+TPS: 8918.776367
+################################################################
+
+################################################################
+# Popular
+num_searches: 800
+Searching taken 73.612000 (msec)
+TPS: 10867.792969
+######################################
+tree height: 	2
+node_reads: 5761
+node_read_time: 51.369000 (msec)
+################################################################
+
+################################################################
+num_searches: 200
+# Normal
+Searching taken 36.733000 (msec)
+TPS: 5444.695312
+######################################
+tree height: 	4
+node_reads: 796
+node_read_time: 24.532000 (msec)
+################################################################
+
+Total searching taken 110.345000 (msec)
+[       OK ] pareto_workload
+[==========] 1 test(s) run.
+ Reads Requeued:         0		 Writes Requeued:         0
+ Reads Completed:     1570,     6280KiB	 Writes Completed:     1002,       16KiB
+ Read Merges:            0,        0KiB	 Write Merges:            0,        0KiB
+ IO unplugs:          7481        	 Timer unplugs:          60
+
+Throughput (R/W): 353KiB/s / 0KiB/s
+Events (259,4): 19975 entries
+Skips: 0 forward (0 -   0.0%)
