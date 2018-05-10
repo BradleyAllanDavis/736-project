@@ -258,6 +258,8 @@ static void pareto_workload()
         /* printf("######################################\n"); */
 	fs_print(normal->file);
 	fs_clear(normal->file); // Clear read and write counts
+	fs_print(popular->file);
+	fs_clear(popular->file); // Clear read and write counts
 
 	///////////////////////// get pareto keys /////////////////////////
         Item *pareto_items = malloc(num_insertions * sizeof(*items));
