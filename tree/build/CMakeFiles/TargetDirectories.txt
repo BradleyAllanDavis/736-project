@@ -1,0 +1,15 @@
+/users/kanwu/project/btree/build/CMakeFiles/rebuild_cache.dir
+/users/kanwu/project/btree/build/CMakeFiles/edit_cache.dir
+/users/kanwu/project/btree/build/CMakeFiles/test.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/edit_cache.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/btree.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/test.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/src_fs.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/src_btree.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/rebuild_cache.dir
+/users/kanwu/project/btree/build/src/CMakeFiles/src_recf.dir
+/users/kanwu/project/btree/build/test/CMakeFiles/test_fs.dir
+/users/kanwu/project/btree/build/test/CMakeFiles/edit_cache.dir
+/users/kanwu/project/btree/build/test/CMakeFiles/rebuild_cache.dir
+/users/kanwu/project/btree/build/test/CMakeFiles/test_btree.dir
+/users/kanwu/project/btree/build/test/CMakeFiles/test.dir

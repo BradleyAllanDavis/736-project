@@ -1,0 +1,37 @@
+# CMake generated Testfile for 
+# Source directory: /users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests
+# Build directory: /users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(CMake.List "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ListTest.cmake")
+add_test(CMake.VariableWatch "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/VariableWatchTest.cmake")
+add_test(CMake.Include "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/IncludeTest.cmake")
+add_test(CMake.FindBase "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/FindBaseTest.cmake")
+add_test(CMake.Toolchain "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ToolchainTest.cmake")
+add_test(CMake.GetFilenameComponentRealpath "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/GetFilenameComponentRealpathTest.cmake")
+add_test(CMake.Version "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/VersionTest.cmake")
+add_test(CMake.Message "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/MessageTest.cmake")
+add_test(CMake.File "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/FileTest.cmake")
+add_test(CMake.ImplicitLinkInfo "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ImplicitLinkInfoTest.cmake")
+add_test(CMake.ModuleNotices "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ModuleNoticesTest.cmake")
+add_test(CMake.GetProperty "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/GetPropertyTest.cmake")
+add_test(CMake.If "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/IfTest.cmake")
+add_test(CMake.String "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/StringTest.cmake")
+add_test(CMake.Math "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/MathTest.cmake")
+add_test(CMake.CMakeMinimumRequired "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/CMakeMinimumRequiredTest.cmake")
+add_test(CMake.CompilerIdVendor "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/CompilerIdVendorTest.cmake")
+add_test(CMake.ProcessorCount "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-DKWSYS_TEST_EXE=/users/kanwu/external_btree/cmake-3.11.1/Source/kwsys/cmsysTestsCxx" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ProcessorCountTest.cmake")
+add_test(CMake.PushCheckState "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/PushCheckStateTest.cmake")
+add_test(CMake.While "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/WhileTest.cmake")
+add_test(CMake.CMakeHostSystemInformation "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/CMakeHostSystemInformationTest.cmake")
+add_test(CMake.FileDownload "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/FileDownloadTest.cmake")
+set_tests_properties(CMake.FileDownload PROPERTIES  PASS_REGULAR_EXPRESSION "file already exists with expected MD5 sum")
+add_test(CMake.FileDownloadBadHash "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/FileDownloadBadHashTest.cmake")
+set_tests_properties(CMake.FileDownloadBadHash PROPERTIES  WILL_FAIL "TRUE")
+add_test(CMake.FileUpload "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/FileUploadTest.cmake")
+add_test(CMake.ELF "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/ELFTest.cmake")
+add_test(CMake.EndStuff "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-Ddir:STRING=/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/EndStuffTest" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/EndStuffTest.cmake")
+add_test(CMake.GetPrerequisites "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-DConfiguration:STRING=" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/GetPrerequisitesTest.cmake")
+add_test(CMake.PolicyCheck "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-DCMake_BINARY_DIR:PATH=/users/kanwu/external_btree/cmake-3.11.1" "-DCMake_SOURCE_DIR:PATH=/users/kanwu/external_btree/cmake-3.11.1" "-DGIT_EXECUTABLE:STRING=/usr/bin/git" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/PolicyCheckTest.cmake")
+add_test(CMake.CheckSourceTree "/users/kanwu/external_btree/cmake-3.11.1/bin/cmake" "-DCMake_BINARY_DIR:PATH=/users/kanwu/external_btree/cmake-3.11.1" "-DCMake_SOURCE_DIR:PATH=/users/kanwu/external_btree/cmake-3.11.1" "-DGIT_EXECUTABLE:STRING=/usr/bin/git" "-DHOME:STRING=/users/kanwu" "-P" "/users/kanwu/external_btree/cmake-3.11.1/Tests/CMakeTests/CheckSourceTreeTest.cmake")

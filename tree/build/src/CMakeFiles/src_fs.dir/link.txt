@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsrc_fs.a  CMakeFiles/src_fs.dir/fs.c.o
+/usr/bin/ranlib libsrc_fs.a

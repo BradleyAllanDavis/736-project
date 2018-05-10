@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsrc_btree.a  CMakeFiles/src_btree.dir/btree.c.o
+/usr/bin/ranlib libsrc_btree.a

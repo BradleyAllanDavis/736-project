@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/cmocka.h
+
+/users/kanwu/external_btree/cmocka-1.1.0/example/allocate_module.c
+config.h
+/users/kanwu/external_btree/cmocka-1.1.0/example/config.h
+malloc.h
+-
+sys/types.h
+-
+stdlib.h
+-
+
+/users/kanwu/external_btree/cmocka-1.1.0/example/allocate_module_test.c
+stdarg.h
+-
+stddef.h
+-
+setjmp.h
+-
+cmocka.h
+-
+
+config.h
+

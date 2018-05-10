@@ -1,0 +1,16 @@
+set(binary_name "${PROJECT_NAME}")
+add_executable("${binary_name}" main.c)
+
+add_library(src_fs fs.c)
+add_library(src_btree btree.c)
+target_link_libraries(src_btree src_fs)
+add_library(src_recf recf.c)
+target_link_libraries(src_recf src_fs)
+target_link_libraries("${binary_name}" src_btree src_recf)
+
+find_package(Readline REQUIRED)
+include_directories(${Readline_INCLUDE_DIRS})
+target_link_libraries("${binary_name}" "${Readline_LIBRARY}")
+if(build_static)
+  target_link_libraries("${binary_name}" termcap)
+endif()

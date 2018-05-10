@@ -1,0 +1,1 @@
+/usr/bin/cc  --std=c99 -Wall -Wextra -Werror=implicit-function-declaration -Wstrict-overflow=5 -O0 -g  -rdynamic CMakeFiles/btree.dir/main.c.o  -o btree libsrc_btree.a libsrc_recf.a -lreadline libsrc_fs.a 

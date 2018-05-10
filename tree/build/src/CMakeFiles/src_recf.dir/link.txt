@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsrc_recf.a  CMakeFiles/src_recf.dir/recf.c.o
+/usr/bin/ranlib libsrc_recf.a
